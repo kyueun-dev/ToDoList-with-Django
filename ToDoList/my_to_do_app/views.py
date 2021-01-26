@@ -15,11 +15,12 @@ def createTodo(request):
     new_todo = Todo(content = user_input_str)
     new_todo.save()
     return HttpResponseRedirect(reverse('index'))
-    #return HttpResponse("create Todo를 할 거야! =>" + user_input_str)
+    # return HttpResponse("create Todo를 할 거야! =>" + user_input_str)
 
 def doneTodo(request):
-    done_todo_id = request.GET['todoNum']
+    done_todo_id = request.GET['todoNum']  # 이 명령의 의미는 뭐지? (확인 필)
     print("완료한 todo의 id ", done_todo_id)
     todo = Todo.objects.get(id = done_todo_id)
-    todo.delete()
+    todo.isDone = True
+    todo.save()  # 이걸 적는 줄은 몰랐네
     return HttpResponseRedirect(reverse('index'))

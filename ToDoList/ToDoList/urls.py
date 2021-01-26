@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 # ToDoList > ToDoList > urls.py
-# import ... << 이런 이상한 게 있었는데.. 뭐였지..
+# import ... << 이런 게 있었는데.. 뭐지..
 from django.contrib import admin
 from django.urls import path, include
 
